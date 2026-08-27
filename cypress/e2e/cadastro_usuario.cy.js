@@ -15,7 +15,7 @@ describe(`Cadastro de usuário`, () => {
   
  });
 
-   it.only(`´Cadastro com email inválido`, () => {
+   it(`´Cadastro com email inválido`, () => {
        acessarCadastro();
        preencherNome(faker.person.fullName())
        preencherEmail(faker.internet.password(6))
@@ -27,7 +27,7 @@ describe(`Cadastro de usuário`, () => {
 })
 
 
- it.only(`´Cadastro sem senha`, () => {
+ it(`´Cadastro sem senha`, () => {
        acessarCadastro();
        preencherNome(faker.person.fullName())
        preencherEmail(faker.internet.email())
