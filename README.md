@@ -66,7 +66,7 @@ cypress-web/
 ## 📦 Instalação
 
 ```bash
-git clone https://github.com/Joao-Paaulo-oliveira/cypress-web-.git
+git clone [https://github.com/Joao-Paaulo-oliveira/cypress-web-.git](https://github.com/Joao-Paaulo-oliveira/cypress-web-.git)
 cd cypress-web-
 npm install
 ```
