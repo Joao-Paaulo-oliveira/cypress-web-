@@ -6,4 +6,4 @@ export const telas = [
   { dispositivo: 'Mobile',  largura: 375,  altura: 667 }
 ];
 
-// ARRAY COM OS NOMES DAS TELAS PARA TESTE DE RESPONSIVIDADE
+// ARRAY DE VIEWPORTS (DISPOSITIVO, LARGURA, ALTURA) PARA TESTE DE RESPONSIVIDADE
