@@ -34,7 +34,7 @@ cypress-web/
 └── package.json
 
 
-⚙️ Pré-requisitos
+## ⚙️ Pré-requisitos
 Node.js (versão LTS recomendada)
 
 Git
