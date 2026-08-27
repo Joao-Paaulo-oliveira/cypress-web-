@@ -1,101 +1,61 @@
 
 /// <reference types="cypress" />
-import { faker } from '@faker-js/faker';                                // IMPORTANDO A BIBLIOTECA FAKER PARA GERAR DADOS ALEATÓRIOS
+import { faker } from '@faker-js/faker';
+import { 
+  acessarLogin, 
+  preencherEmail, 
+  preencherSenha, 
+  clicarLogin, 
+  validarMensagem, 
+  clicarCriarConta 
+} from '../support/pages/login_pages';
+import { telas } from '../support/utils/viewports';
 
-const telas = [{ dispositivo: "Desktop", largura: 1920, altura: 1080 }, // ARRAY COM OS NOMES DAS TELAS PARA TESTE DE RESPONSIVIDADE
-               { dispositivo: "Tablet", largura: 768, altura: 1024 },
-               { dispositivo: "Mobile", largura: 375, altura: 667 } 
-];         
-
-telas.forEach((tela) => {                                               // LOOP PARA EXECUTAR OS TESTES EM CADA TELA DEFINIDA NO ARRAY
-    describe(`Login - ${tela.dispositivo}`, () => { 
+telas.forEach((tela) => {
+  describe(`Login - ${tela.dispositivo}`, () => {
     
-        beforeEach(() => {
-        cy.viewport(tela.largura, tela.altura);                         // DEFININDO O TAMANHO DA JANELA DO NAVEGADOR
-        cy.visit("/login");                                             // VISITAR A PÁGINA DE LOGIN ANTES DE CADA TESTE
-    
-   }); 
-
-
-
-
-it(`Login com sucesso - ${tela.dispositivo}`, () => {
-   
-    cy.preencherEmail(faker.internet.email());
-    cy.get('#password').type(faker.string.numeric(6));
-    cy.get('#btnLogin').click();
-    cy.get('#swal2-title')
-     .should("have.text", 'Login realizado')
-     .should('be.visible');
-
-});
-
-
-
-it(`Login e-mail vazio - ${tela.dispositivo}`, () => {
-
-    cy.get('#password').type(faker.string.numeric(6));
-    cy.get('#btnLogin').click();
-    cy.get('.invalid_input')
-     .should("have.text", 'E-mail inválido.')
-     .should('be.visible');
-    
-});
-
-
-
-it(`Login senha vazia - ${tela.dispositivo}`, () => {
-
-    cy.preencherEmail(faker.internet.email());
-    cy.get('#btnLogin').click();
-    cy.get('.invalid_input')
-     .should("have.text", 'Senha inválida.')
-     .should('be.visible');
-    
-});
-
-
-
-
-
-it(`Login e-mail inválido - ${tela.dispositivo}`, () => {
-
-    cy.preencherEmail('email_invalido');
-    cy.get('#password').type(faker.string.numeric(6));
-    cy.get('#btnLogin').click();
-    cy.get('.invalid_input')
-     .should("have.text", 'E-mail inválido.')
-     .should('be.visible');
-    
-});
-
-
-
-
-it(`Login senha inválida - ${tela.dispositivo}`, () => {
-
-    cy.preencherEmail(faker.internet.email());
-    cy.get('#password').type(faker.string.numeric(4));
-    cy.get('#btnLogin').click();
-    cy.get('.invalid_input')
-     .should("have.text", 'Senha inválida.')
-     .should('be.visible');  
-
-    
-})
-
-it(`Botão ainda não tem conta - ${tela.dispositivo}`, () => {
-
-    cy.get('#createAccount').click();
-    cy.url().should('eq', 'https://www.automationpratice.com.br/register');
-    cy.get('.account_form > h3')
-     .should('have.text', 'Cadastro de usuário')
-     .should('be.visible');
-
-
-
-});
-
-
+    beforeEach(() => {
+      cy.viewport(tela.largura, tela.altura);
+      acessarLogin();
     });
-}); 
+
+    it(`Login com sucesso - ${tela.dispositivo}`, () => {
+      preencherEmail(faker.internet.email());
+      preencherSenha(faker.string.numeric(6));
+      clicarLogin();
+      validarMensagem('Login realizado');
+    });
+
+    it(`Login e-mail vazio - ${tela.dispositivo}`, () => {
+      preencherSenha(faker.string.numeric(6));
+      clicarLogin();
+      validarMensagem('E-mail inválido.');
+    });
+
+    it(`Login senha vazia - ${tela.dispositivo}`, () => {
+      preencherEmail(faker.internet.email());
+      clicarLogin();
+      validarMensagem('Senha inválida.');
+    });
+
+    it(`Login e-mail inválido - ${tela.dispositivo}`, () => {
+      preencherEmail('email_invalido');
+      preencherSenha(faker.string.numeric(6));
+      clicarLogin();
+      validarMensagem('E-mail inválido.');
+    });
+
+    it(`Login senha inválida - ${tela.dispositivo}`, () => {
+      preencherEmail(faker.internet.email());
+      preencherSenha(faker.string.numeric(3));
+      clicarLogin();
+      validarMensagem('Senha inválida.');
+    });
+
+    it(`Botão ainda não tem conta - ${tela.dispositivo}`, () => {
+      clicarCriarConta();
+      validarMensagem('Cadastro de usuário');
+    });
+
+  }); // Fechamento do describe
+}); // Fechamento  do forEach
