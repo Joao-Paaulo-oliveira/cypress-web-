@@ -1,34 +1,34 @@
-🧪 Automação E2E com Cypress - Web
-Projeto de testes automatizados ponta a ponta (E2E) desenvolvido em Cypress para aplicações Web, com cobertura de cenários de cadastro, login e checkout. A arquitetura foi estruturada utilizando boas práticas de automação: Page Object Model (POM), Custom Commands, geração de dados com Faker, dados estáticos via Fixtures e validação de Responsividade (Multi-viewports).
+# 🧪 Automação E2E com Cypress - Web
 
-🚀 Tecnologias Utilizadas
-Cypress — Framework de automação de testes E2E
+Projeto de testes automatizados ponta a ponta (E2E) desenvolvido em Cypress para aplicações Web, com cobertura de cenários de cadastro, login e checkout. A arquitetura foi estruturada utilizando boas práticas de automação: **Page Object Model (POM)**, **Custom Commands**, geração de dados com **Faker**, dados estáticos via **Fixtures** e validação de **Responsividade (Multi-viewports)**.
 
-JavaScript (ES6+) — Linguagem base do projeto
+---
 
-@faker-js/faker — Geração dinâmica de dados de teste
+## 🚀 Tecnologias Utilizadas
 
-Node.js & npm — Ambiente de execução e gerenciamento de dependências
+* **[Cypress](https://www.cypress.io/)** — Framework de automação de testes E2E
+* **[JavaScript (ES6+)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)** — Linguagem base do projeto
+* **[@faker-js/faker](https://fakerjs.dev/)** — Geração dinâmica de dados de teste
+* **Node.js & npm** — Ambiente de execução e gerenciamento de dependências
 
-🏛️ Padrões e Estratégia de Testes
-Page Objects (POM): Ações e seletores isolados na pasta support/pages/ para evitar duplicidade de código.
+---
 
-Custom Commands: Comandos customizados em support/commands.js e support/login_commands.js.
+## 🏛️ Padrões e Estratégia de Testes
 
-Massa Dinâmica: Dados gerados via Faker para testes de cadastro e validações de input.
+* **Page Objects (POM):** Ações e seletores isolados na pasta `support/pages/` para evitar duplicidade de código.
+* **Custom Commands:** Comandos customizados em `support/commands.js` e `support/login_commands.js`.
+* **Massa Dinâmica:** Dados gerados via Faker para testes de cadastro e validações de input.
+* **Massa Estática:** Dados fixos em formato JSON em `fixtures/login.json`.
+* **Testes de Responsividade:** Execuções iterativas baseadas no utilitário `support/utils/viewports.js`:
+  * **Desktop:** 1920x1080
+  * **Tablet:** 768x1024
+  * **Mobile:** 375x667
 
-Massa Estática: Dados fixos em formato JSON em fixtures/login.json.
+---
 
-Testes de Responsividade: Execuções iterativas baseadas no utilitário support/utils/viewports.js:
+## 📁 Estrutura do Projeto
 
-Desktop: 1920x1080
-
-Tablet: 768x1024
-
-Mobile: 375x667
-
-📁 Estrutura do Projeto
-Plaintext
+```text
 cypress-web/
 ├── .gitignore
 ├── cypress.config.js
@@ -52,26 +52,40 @@ cypress-web/
         ├── commands.js
         ├── login_commands.js
         └── e2e.js
-⚙️ Pré-requisitos
-Node.js (versão LTS)
+```
 
-Git
+---
 
-📦 Instalação
-Bash
-git clone [https://github.com/Joao-Paaulo-oliveira/cypress-web-.git](https://github.com/Joao-Paaulo-oliveira/cypress-web-.git)
+## ⚙️ Pré-requisitos
+
+* [Node.js](https://nodejs.org/) (versão LTS recomendada)
+* [Git](https://git-scm.com/)
+
+---
+
+## 📦 Instalação
+
+```bash
+git clone https://github.com/Joao-Paaulo-oliveira/cypress-web-.git
 cd cypress-web-
 npm install
-🧪 Execução dos Testes
-Modo Interativo (Cypress Test Runner):
+```
 
-Bash
+---
+
+## 🧪 Execução dos Testes
+
+**Modo Interativo (Cypress Test Runner):**
+```bash
 npx cypress open
-Modo Headless (Terminal):
+```
 
-Bash
+**Modo Headless (Terminal):**
+```bash
 npx cypress run
-Executar arquivo específico:
+```
 
-Bash
+**Executar arquivo específico:**
+```bash
 npx cypress run --spec "cypress/e2e/login.cy.js"
+```
