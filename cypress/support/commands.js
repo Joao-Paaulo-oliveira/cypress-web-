@@ -1,6 +1,6 @@
 
 Cypress.Commands.add('preencheCampo', (selector, info) => {
-  cy.get(selector, { timeout: 3000 })
+  cy.get(selector)
     .should('be.visible')
     .clear()
     .type(info);

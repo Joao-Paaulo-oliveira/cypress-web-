@@ -15,27 +15,24 @@ describe(`Cadastro de usuário`, () => {
   
  });
 
-   it(`´Cadastro com email inválido`, () => {
-       acessarCadastro();
-       preencherNome(faker.person.fullName())
-       preencherEmail(faker.internet.password(6))
-       preencherSenha(faker.internet.password(6))
-       cadastrar()     
+  it(`Cadastro com email inválido`, () => {
+    acessarCadastro();
+    preencherNome(faker.person.fullName());
+    preencherEmail(faker.internet.password(6));
+    preencherSenha(faker.internet.password(6));
+    cadastrar();
 
-       validarMensagem('O campo e-mail deve ser prenchido corretamente')
-   
-})
+    validarMensagem('O campo e-mail deve ser prenchido corretamente');
+  });
 
+  it(`Cadastro sem senha`, () => {
+    acessarCadastro();
+    preencherNome(faker.person.fullName());
+    preencherEmail(faker.internet.email());
+    cadastrar();
 
- it(`´Cadastro sem senha`, () => {
-       acessarCadastro();
-       preencherNome(faker.person.fullName())
-       preencherEmail(faker.internet.email())
-       cadastrar()     
-
-       validarMensagem('O campo senha deve ter pelo menos 6 dígitos')
-   
-})
+    validarMensagem('O campo senha deve ter pelo menos 6 dígitos');
+  });
 
 
 });

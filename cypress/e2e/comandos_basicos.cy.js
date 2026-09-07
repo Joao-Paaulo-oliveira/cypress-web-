@@ -22,15 +22,15 @@ describe("Comandos basicos", () => {
     cy.visit("https://www.automationpratice.com.br/login");
    
     // type() - preencher campo
-   cy.get('#user').type('teste@teste.com')
-   cy.get('#password').type('123456')
+    cy.get('#user').type('teste@teste.com');
+    cy.get('#password').type('123456');
 
-    // click() - clicar em elemento
-    cy.get('#btnLogin').click();
     // rightclick() - clicar com o botão direito do mouse
     cy.get('#btnLogin').rightclick(); 
     // dblclick() - clicar duas vezes no elemento
-    cy.get('#btnLogin').dblclick();
+    cy.get('#user').dblclick();
+    // click() - clicar em elemento
+    cy.get('#btnLogin').click();
   
   });
 
@@ -55,7 +55,7 @@ describe("Comandos basicos", () => {
 
 });
 
-it.only("Validar elementos", () => {
+it("Validar elementos", () => {
     cy.visit("https://www.automationpratice.com.br/login");
 
     
