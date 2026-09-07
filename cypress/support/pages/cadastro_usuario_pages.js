@@ -1,25 +1,21 @@
-
-
-
 export function acessarCadastro() {
-    cy.visit('/register');
+  cy.visit('/register');
 }
 
-
- export function preencherNome(nome) {
-    cy.preencheCampo('#user', nome);
+export function preencherNome(nome) {
+  cy.preencheCampo('#user', nome);
 }
 
 export function preencherEmail(email) {
-    cy.preencheCampo('#email', email);
+  cy.preencheCampo('#email', email);
 }
 
 export function preencherSenha(senha) {
-    cy.preencheCampo('#password', senha);
+  cy.preencheCampo('#password', senha);
 }
 
 export function cadastrar() {
-    cy.get('#btnRegister').click();
+  cy.get('#btnRegister').click();
 }
 
 export function validarMensagem(textoEsperado) {
@@ -28,11 +24,9 @@ export function validarMensagem(textoEsperado) {
 }
 
 export function cadastrarUsuario(nome, email, senha) {
-    acessarCadastro();
-    preencherNome(nome);
-    preencherEmail(email);
-    preencherSenha(senha);
-    cadastrar();
-    
+  acessarCadastro();
+  preencherNome(nome);
+  preencherEmail(email);
+  preencherSenha(senha);
+  cadastrar();
 }
-

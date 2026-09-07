@@ -18,15 +18,9 @@ export function clicarCriarConta() {
   cy.get("#createAccount").click();
 }
 
-
-
-
 export function validarMensagem(textoEsperado) {
   cy.contains(textoEsperado, { timeout: 10000 }).should("be.visible");
 }
-
-
-
 
 export function realizarLogin(email, senha) {
   acessarLogin();
@@ -34,3 +28,4 @@ export function realizarLogin(email, senha) {
   preencherSenha(senha);
   clicarLogin();
 }
+

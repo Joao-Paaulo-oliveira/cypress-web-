@@ -1,7 +1,1 @@
-
-/// <reference types="cypress" />
-import { faker } from '@faker-js/faker';  
-
-Cypress.Commands.add('preencherEmail', (email) => {
-  cy.get('#user').type(email);
-})
+// Comandos de login consolidados em cypress/support/pages/login_pages.js
