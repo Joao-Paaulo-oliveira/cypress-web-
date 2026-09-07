@@ -34,6 +34,9 @@ cypress-web/
 ├── cypress.config.js
 ├── package.json
 ├── README.md
+├── docs/
+│   ├── cenarios-de-teste.md
+│   └── especificacao-bdd.md
 │
 └── cypress/
     ├── e2e/
@@ -46,6 +49,7 @@ cypress-web/
     └── support/
         ├── pages/
         │   ├── cadastro_usuario_pages.js
+        │   ├── checkout_pages.js
         │   └── login_pages.js
         ├── utils/
         │   └── viewports.js
@@ -53,6 +57,13 @@ cypress-web/
         ├── login_commands.js
         └── e2e.js
 ```
+
+---
+
+## 📋 Documentação e Especificação de Testes
+
+* 👉 **[Mapeamento de Casos e Cenários](docs/cenarios-de-teste.md):** Tabela técnica detalhada com IDs (`CT-*`), tipos de teste (positivo, negativo, BVA), dados de entrada e oráculos de asserção para os 16 cenários e 28 execuções.
+* 👉 **[Especificação BDD / Gherkin](docs/especificacao-bdd.md):** Especificação formal em formato de negócio declarativo (`Dado / Quando / Então` e `Esquema do Cenário`) para as funcionalidades de Login, Cadastro e Checkout, com rastreabilidade direta para a automação.
 
 ---
 
@@ -66,7 +77,7 @@ cypress-web/
 ## 📦 Instalação
 
 ```bash
-git clone [https://github.com/Joao-Paaulo-oliveira/cypress-web-.git](https://github.com/Joao-Paaulo-oliveira/cypress-web-.git)
+git clone https://github.com/Joao-Paaulo-oliveira/cypress-web-.git
 cd cypress-web-
 npm install
 ```
